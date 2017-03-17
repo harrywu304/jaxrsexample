@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pub</groupId>
+	<artifactId>jxsjerseystandalone</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>jxsjersey Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<!-- 当war项目缺少web.xml文件的需要设置该属性 -->
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.pub</groupId>
+			<artifactId>helloservice</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- for netty -->		
+		<!-- 
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-netty-http</artifactId>
+			<version>2.25.1</version>
+		</dependency>
+		 -->
+		 
+		<!-- for jetty -->		
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-http</artifactId>
+			<version>2.25.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>	
+		<dependency>
+		  <groupId>org.eclipse.jetty</groupId>
+		  <artifactId>jetty-http</artifactId>
+		  <version>9.2.14.v20151106</version>
+		</dependency>	
+		<dependency>
+		  <groupId>org.eclipse.jetty</groupId>
+		  <artifactId>jetty-io</artifactId>
+		  <version>9.2.14.v20151106</version>
+		</dependency>		
+        
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<!-- if your container implements Servlet API older than 3.0, use "jersey-container-servlet-core" -->
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.25.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>jxsjerseystandalone</finalName>
+	</build>
+</project>
