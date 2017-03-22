@@ -1,6 +1,11 @@
 package org.pub.jxsjersey.rest;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -22,10 +27,21 @@ public class HelloRest {
 
 	@POST
 	@Path("saygoodbye")
+	@Consumes({MediaType.APPLICATION_FORM_URLENCODED})
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Consumes({ MediaType.APPLICATION_FORM_URLENCODED })
-	public String sayGoodbye(User user) {
-		String name = user.getName();
-		return "Goodbye " + name;
+	public Map sayGoodbye(@FormParam("name") String name) {
+		Map<String,String> rt = new HashMap<String,String>();
+		rt.put("echo", "Goodbye " + name);
+		return rt;
+	}
+	
+	
+	@POST
+	@Path("echo")
+	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_JSON })
+	public User echo( User user) {
+		user.setName("demo");
+		return user;
 	}
 }
